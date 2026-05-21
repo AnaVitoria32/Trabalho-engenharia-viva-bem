@@ -6,6 +6,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.json({ message: "Backend funcionando" });
+});
+
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
@@ -16,10 +20,14 @@ app.post("/login", (req, res) => {
   return res.status(401).json({ message: "erro login" });
 });
 
+app.get("/dashboard", (req, res) => {
+  res.json({
+    usuarios: 120,
+    consultas: 54,
+    atendimentos: 89
+  });
+});
+
 app.listen(3000, () => {
   console.log("backend rodando em http://localhost:3000");
-  
-  app.get("/", (req, res) => {
-  res.json({ message: "Backend funcionando " });
-});
 });
