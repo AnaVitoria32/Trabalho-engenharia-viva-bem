@@ -1,16 +1,346 @@
-# React + Vite
+# Viva Bem - Sistema Nutricional
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema nutricional desenvolvido com React no frontend e Node.js + Express no backend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Funcionalidades
 
-## React Compiler
+- Login de usuários
+- Dashboard administrativo
+- Controle de pacientes
+- Área de consultas
+- Criação de planos alimentares
+- Rotas protegidas
+- Logout
+- Comunicação Frontend ↔ Backend via API REST
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+# Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Frontend
+
+- React
+- React Router DOM
+- CSS
+- Fetch API
+
+---
+
+## Backend
+
+- Node.js
+- Express
+- Cors
+
+---
+
+# Estrutura do Projeto
+
+```bash
+viva-bem/
+│
+├── backend/
+│   ├── server.js
+│   ├── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── ProtectedRoute.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   └── Dashboard.jsx
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   │
+│   │   ├── Login.css
+│   │   └── Dashboard.css
+│   │
+│   ├── package.json
+│
+└── README.md
+```
+
+---
+
+# Como Rodar o Projeto
+
+## 1. Clonar Repositório
+
+```bash
+git clone URL_DO_REPOSITORIO
+```
+
+---
+
+## 2. Instalar o Node.js
+
+Download:
+https://nodejs.org
+
+Verifique instalação:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+# Rodando o Backend
+
+## Entrar na pasta backend
+
+```bash
+cd backend
+```
+
+---
+
+## Instalar dependências
+
+```bash
+npm install
+```
+
+Ou manualmente:
+
+```bash
+npm install express cors
+```
+
+---
+
+## Rodar servidor
+
+```bash
+node server.js
+```
+
+Servidor:
+
+```text
+http://localhost:3000
+```
+
+Mensagem esperada:
+
+```bash
+backend rodando em http://localhost:3000
+```
+
+---
+
+# Rodando o Frontend
+
+## Entrar na pasta frontend
+
+```bash
+cd frontend
+```
+
+---
+
+## Instalar dependências
+
+```bash
+npm install
+```
+
+---
+
+## Instalar React Router
+
+```bash
+npm install react-router-dom
+```
+
+---
+
+## Rodar aplicação
+
+```bash
+npm run dev
+```
+
+O terminal exibirá:
+
+```text
+http://localhost:5173
+```
+
+Abra no navegador.
+
+---
+
+# Rotas da API
+
+# GET /
+
+Retorna status do backend.
+
+## Resposta
+
+```json
+{
+  "message": "Backend funcionando"
+}
+```
+
+---
+
+# POST /login
+
+Realiza autenticação do usuário.
+
+## Body
+
+```json
+{
+  "email": "teste@teste.com",
+  "password": "123"
+}
+```
+
+---
+
+## Sucesso
+
+```json
+{
+  "token": "token-fake"
+}
+```
+
+---
+
+## Erro
+
+```json
+{
+  "message": "erro login"
+}
+```
+
+---
+
+# GET /dashboard
+
+Retorna dados do dashboard.
+
+## Resposta
+
+```json
+{
+  "usuarios": 120,
+  "consultas": 54,
+  "atendimentos": 89
+}
+```
+
+---
+
+# Fluxo do Sistema
+
+```text
+Usuário → Login → Backend → Token →
+Dashboard → Dados carregados da API
+```
+
+---
+
+# Proteção de Rotas
+
+O sistema utiliza um componente `ProtectedRoute` para impedir acesso ao dashboard sem autenticação.
+
+O token é salvo no:
+
+```js
+localStorage
+```
+
+---
+
+# Credenciais de Teste
+
+```text
+Email: teste@teste.com
+Senha: 123
+```
+
+---
+
+# Telas do Sistema
+
+## Login
+
+- Autenticação do usuário
+- Validação de credenciais
+- Redirecionamento para dashboard
+
+---
+
+## Dashboard
+
+- Cards informativos
+- Navegação lateral
+- Dados vindos da API
+
+---
+
+## Pacientes
+
+- Tabela de pacientes cadastrados
+
+---
+
+## Consultas
+
+- Agenda nutricional
+
+---
+
+## Criar Planos
+
+- Cadastro de plano alimentar
+
+---
+
+# Melhorias Futuras
+
+- Banco de dados
+- JWT real
+- Cadastro de usuários
+- CRUD completo
+- Responsividade
+- Gráficos
+- Upload de imagens
+- Integração com APIs externas
+
+---
+
+# Comandos Úteis
+
+## Backend
+
+```bash
+node server.js
+```
+
+---
+
+## Frontend
+
+```bash
+npm run dev
+```
+
+---
+
+# Autor
+
+Projeto desenvolvido para fins acadêmicos e estudo de desenvolvimento Full Stack.
