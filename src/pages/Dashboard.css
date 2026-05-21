@@ -7,9 +7,15 @@
 }
 
 body {
-  background: #0f172a;
   font-family: "Poppins", sans-serif;
   color: white;
+
+  background:
+    radial-gradient(circle at top left, rgba(34,197,94,0.15), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(59,130,246,0.12), transparent 30%),
+    linear-gradient(135deg, #0f172a, #111827, #1e293b);
+
+  min-height: 100vh;
 }
 
 /* ===== LAYOUT ===== */
@@ -17,38 +23,47 @@ body {
 .dashboard-container {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
 /* ===== SIDEBAR ===== */
 
 .sidebar {
-  width: 260px;
-  background: rgba(15, 23, 42, 0.85);
+  width: 270px;
 
-  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.75);
+
+  backdrop-filter: blur(18px);
 
   border-right: 1px solid rgba(255,255,255,0.08);
 
-  padding: 30px 20px;
+  padding: 30px 22px;
 
   display: flex;
   flex-direction: column;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.35);
 }
+
+/* ===== LOGO ===== */
 
 .logo {
   margin-bottom: 50px;
 }
 
 .logo h2 {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
-  color: #4ade80;
+
+  background: linear-gradient(to right, #4ade80, #22c55e);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .logo p {
   color: #94a3b8;
-  margin-top: 5px;
+  margin-top: 8px;
   font-size: 14px;
 }
 
@@ -57,40 +72,50 @@ body {
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .menu button {
   background: transparent;
-  border: none;
+
+  border: 1px solid transparent;
 
   color: #cbd5e1;
 
   text-align: left;
 
-  padding: 15px;
+  padding: 16px;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   cursor: pointer;
 
   font-size: 15px;
+  font-weight: 500;
 
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .menu button:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
+
+  border-color: rgba(255,255,255,0.08);
+
   color: white;
-  transform: translateX(5px);
+
+  transform: translateX(6px);
 }
 
 .menu .active {
   background: linear-gradient(135deg, #22c55e, #16a34a);
+
   color: white;
+
+  box-shadow:
+    0 10px 25px rgba(34,197,94,0.35);
 }
 
-/* ===== LOGOUT ===== */
+/* ===== BOTÃO SAIR ===== */
 
 .logout-button {
   margin-top: auto;
@@ -101,9 +126,9 @@ body {
 
   color: white;
 
-  padding: 14px;
+  padding: 15px;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   cursor: pointer;
 
@@ -115,13 +140,16 @@ body {
 
 .logout-button:hover {
   transform: scale(1.03);
+
+  box-shadow:
+    0 10px 25px rgba(239,68,68,0.35);
 }
 
 /* ===== CONTEÚDO ===== */
 
 .dashboard-content {
   flex: 1;
-  padding: 40px;
+  padding: 45px;
 }
 
 /* ===== HEADER ===== */
@@ -131,12 +159,20 @@ body {
 }
 
 .dashboard-header h1 {
-  font-size: 36px;
+  font-size: 40px;
+  font-weight: 700;
+
+  background: linear-gradient(to right, white, #4ade80);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   margin-bottom: 10px;
 }
 
 .dashboard-header p {
   color: #94a3b8;
+  font-size: 15px;
 }
 
 /* ===== CARDS ===== */
@@ -150,21 +186,24 @@ body {
 }
 
 .card {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.07);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255,255,255,0.08);
 
-  border-radius: 22px;
+  border-radius: 24px;
 
-  padding: 28px;
+  padding: 30px;
 
-  transition: 0.3s;
+  transition: all 0.35s ease;
 
   position: relative;
 
   overflow: hidden;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.25);
 }
 
 .card::before {
@@ -172,50 +211,187 @@ body {
 
   position: absolute;
 
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
 
-  background: rgba(255,255,255,0.04);
+  background:
+    radial-gradient(
+      rgba(74,222,128,0.15),
+      transparent
+    );
 
   border-radius: 50%;
 
-  top: -40px;
-  right: -40px;
+  top: -70px;
+  right: -70px;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(74, 222, 128, 0.4);
+  transform: translateY(-10px) scale(1.02);
+
+  border-color: rgba(74,222,128,0.3);
+
+  box-shadow:
+    0 18px 45px rgba(34,197,94,0.18);
 }
 
 .card h3 {
   color: #cbd5e1;
   font-size: 16px;
   margin-bottom: 18px;
+  font-weight: 500;
 }
 
 .card p {
-  font-size: 42px;
+  font-size: 46px;
   font-weight: bold;
   color: #4ade80;
 }
 
-/* ===== TABELA / ÁREA EXTRA ===== */
+/* ===== SEÇÕES ===== */
 
 .extra-section {
   margin-top: 40px;
 
   background: rgba(255,255,255,0.05);
 
-  border-radius: 22px;
+  backdrop-filter: blur(12px);
 
-  padding: 25px;
+  border-radius: 24px;
+
+  padding: 28px;
 
   border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.2);
 }
 
 .extra-section h2 {
   margin-bottom: 20px;
+}
+
+/* ===== TABELA ===== */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.table th {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.table tr {
+  transition: 0.3s;
+}
+
+.table tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* ===== FORM ===== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form input,
+.form textarea {
+  padding: 16px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  background: rgba(255,255,255,0.07);
+
+  color: white;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: rgba(74,222,128,0.5);
+
+  box-shadow:
+    0 0 0 4px rgba(74,222,128,0.08);
+}
+
+.form textarea {
+  min-height: 160px;
+  resize: none;
+}
+
+.form button {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+
+  border: none;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.form button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(34,197,94,0.3);
+}
+
+/* ===== CONSULTAS ===== */
+
+.consulta-card {
+  background: rgba(255,255,255,0.05);
+
+  padding: 22px;
+
+  border-radius: 18px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.3s;
+}
+
+.consulta-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(74,222,128,0.2);
+}
+
+.consulta-card h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.consulta-card p {
+  color: #94a3b8;
 }
 
 /* ===== RESPONSIVO ===== */
@@ -228,93 +404,14 @@ body {
 
   .sidebar {
     width: 100%;
+
     border-right: none;
+
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-}
-/* TABELA */
+  .dashboard-content {
+    padding: 25px;
+  }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table th,
-.table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.table th {
-  color: #4ade80;
-}
-
-/* FORM */
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form input,
-.form textarea {
-  padding: 15px;
-
-  border-radius: 12px;
-
-  border: none;
-
-  background: rgba(255,255,255,0.08);
-
-  color: white;
-
-  font-size: 15px;
-}
-
-.form textarea {
-  min-height: 140px;
-  resize: none;
-}
-
-.form button {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-
-  border: none;
-
-  padding: 15px;
-
-  border-radius: 12px;
-
-  color: white;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition: 0.3s;
-}
-
-.form button:hover {
-  transform: scale(1.02);
-}
-
-/* CONSULTAS */
-
-.consulta-card {
-  background: rgba(255,255,255,0.05);
-
-  padding: 20px;
-
-  border-radius: 16px;
-
-  margin-bottom: 15px;
-
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.consulta-card h3 {
-  margin-bottom: 8px;
 }
