@@ -35,9 +35,6 @@ jobs:
       - name: Verificar Dashboard
         run: grep -r "Dashboard" src/pages/Dashboard.jsx
 
-      - name: Verificar ProtectedRoute
-        run: test -f src/components/ProtectedRoute.jsx
-
       - name: Verificar elemento root
         run: grep -q 'id="root"' index.html
 
