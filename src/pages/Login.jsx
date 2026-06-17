@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
@@ -18,12 +18,12 @@ export default function Login() {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email,
-          password: senha
-        })
+          password: senha,
+        }),
       });
 
       if (!response.ok) {
@@ -32,13 +32,10 @@ export default function Login() {
 
       const data = await response.json();
 
-      // salva token
       localStorage.setItem("token", data.token);
 
-      // redireciona
       navigate("/dashboard");
-
-    } catch (error) {
+    } catch {
       alert("Email ou senha inválidos");
     } finally {
       setLoading(false);
@@ -48,7 +45,6 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
-
         <div className="logo-area">
           <div className="logo">🥗</div>
 
@@ -58,7 +54,6 @@ export default function Login() {
         </div>
 
         <form onSubmit={handleLogin}>
-
           <div className="input-group">
             <label>Email</label>
             <input
@@ -92,9 +87,7 @@ export default function Login() {
           >
             Criar conta
           </button>
-
         </form>
-
       </div>
     </div>
   );
